@@ -1,0 +1,13 @@
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\bin\Release\WpfTerm1.exe.config
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\bin\Release\WpfTerm1.exe
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\bin\Release\WpfTerm1.pdb
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.csprojResolveAssemblyReference.cache
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\MainWindow.baml
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\MainWindow.g.cs
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\App.g.cs
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1_MarkupCompile.cache
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.g.resources
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.Properties.Resources.resources
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.csproj.GenerateResource.Cache
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.exe
+D:\__ucloud\__google_drive\arduino_Harp\C#_projs\WpfTerm1\WpfTerm1\obj\Release\WpfTerm1.pdb

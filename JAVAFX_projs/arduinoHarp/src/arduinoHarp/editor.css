@@ -1,0 +1,57 @@
+.cpp-keyword {
+    -fx-fill:#6FC7F6;//steelblue;
+    -fx-font-weight:bold;  //-fx-font-style:itatic; // not working
+    //-fx-background-color: white; //not working
+}
+.arduino-func { // style for arduino library functions
+    -fx-fill: #91E22E;//blue;//azure;//navy; //#A6E22E;//font forecolor
+    -fx-font-weight:bold;
+}
+.arduino-const { // style for arduino constants
+    -fx-fill:yellow;// saddlebrown;
+    //-fx-font-weight:bold;
+}
+.comment { // style for arduino constants
+    -fx-fill:#A5A18E;//#75715E;
+    //-fx-font-weight:bold;
+}
+.default { // default font style
+    -fx-fill: white;
+    //-fx-font-weight:bold;
+    //-fx-text-fill: white;
+}
+.lineno {
+    -fx-font-family: Consolas;//monospace;
+    -fx-background-color: #272822;//#17A1A5;
+    -fx-text-fill: #8F908A;
+    -fx-padding: 0 5px;
+}
+.code-area {
+    -fx-font-family: monospace;//consolas;//
+    -fx-font-size: 18;
+    -fx-background-color: #272822;//desired
+    
+    //-fx-fill: white; // not working.
+    //-fx-text-fill: white; // not working.
+}
+.tab-area {
+    -fx-region-background : #17A1A5;
+}
+.caret {
+    -fx-stroke:white;
+}
+.error-line {
+    -fx-fill : red;
+    -fx-font-weight:bold;
+    -fx-underline: true;
+    //-fx-text-fill: red;//not working
+    //-fx-background-color: red;//not working
+    //-fx-background-fills: red;//not working
+}
+
+#comboBox .list-cell
+ {
+    -fx-font-family: arial;
+    -fx-font-size: 16px;
+    -fx-text-fill: #a0522d;
+ }

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="apaneBase" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="720.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arduinoHarp.FXMLDocController">
+   <children>
+      <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="27.0">
+               <children>
+                  <MenuBar fx:id="munuBar1" styleClass="menu-item" stylesheets="@menubar.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                      <Menu text="_File">
+                        <items>
+                              <MenuItem fx:id="menuNew" onAction="#onMenuNew" text="_New">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                          <MenuItem fx:id="menuOpen" onAction="#onMenuOpen" text="_Open">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuSave" onAction="#onMenuSave" text="_Save">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuSaveAs" onAction="#onMenuSaveAs" text="Save _As...">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="F" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem onAction="#editUndo" text="Undo">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem onAction="#editRedo" text="Redo">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem onAction="#editCut" text="Cut">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem onAction="#editCopy" text="Copy">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem onAction="#editPaste" text="Paste">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem onAction="#editSelectAll" text="Select all">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem text="Find">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Sketch">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#onBtnCheck" text="Check / Compile">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="F5" control="UP" meta="UP" shift="UP" shortcut="ANY" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuUpload" onAction="#onMenuUpload" text="_Upload">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="F6" control="UP" meta="UP" shift="UP" shortcut="ANY" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <Menu fx:id="menuImportLib" mnemonicParsing="false" text="Import Library">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#insert_lib_EEPROM" text="EEPROM" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Esplora" text="Esplora" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Ethernet" text="Ethernet" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Firmata" text="Firmata" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_GSM" text="GSM" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_LiquidCrystal" text="LiquidCrystal" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_USBHost" text="Robot_Control" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_USBHost" text="Robot_Motor" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_USBHost" text="RobotIRremote" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_SD" text="SD" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Servo" text="Servo" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_SoftwareSerial" text="SoftwareSerial" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_SPI" text="SPI" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Stepper" text="Stepper" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_TFT" text="TFT" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_WiFi" text="WiFi" />
+                                    <MenuItem mnemonicParsing="false" onAction="#insert_lib_Wire" text="Wire" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                </items>
+                              </Menu>
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuAddLib" text="Add library from ZIP file" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuOpenLibFolder" text="Open library folder" />
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Tool">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Search Arduino" />
+                              <MenuItem mnemonicParsing="false" text="Text Terminal" />
+                              <MenuItem mnemonicParsing="false" text="Plot Terminal" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuOptions" text="Options" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menuExamples" mnemonicParsing="false" text="Examples">
+                           <items>
+                              <Menu mnemonicParsing="false" text="01. Basics">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicAnalogReadSerial" text="AnalogReadSerial" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicBareMinimum" text="BareMinimum" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicBlink" text="Blink" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicDigitalReadSerial" text="DigitalReadSerial" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicFade" text="Fade" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleBasicReadAnalogVoltage" text="ReadAnalogVoltage" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="02. Digital">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#exampleBlinkWithoutDelay" text="BlinkWithoutDelay" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleButton" text="Button" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleDebounce" text="Debounce" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleDigitalInputPullup" text="DigitalInputPullup" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleStateChangeDetection" text="StateChangeDtetction" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleToneKeyboard" text="toneKeyboard" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleToneMelody" text="toneMelody" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleToneMultiple" text="toneMultiple" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleTonePitchFollower" text="tonePitchfollower" />
+                                </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="03. Analog">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleAnalogInOutSerial" text="AnalogInOutSerial" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleAnalogInput" text="AnalogInput" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleAnalogWriteMega" text="AnalogWriteMega" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCalibration" text="Calibration" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleFading" text="Fading" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleSmoothing" text="Smoothing" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="04. Communication">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommASCIITable" text="ASCIITable" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommDimmer" text="Dimmer" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommGraph" text="Graph" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommMidi" text="Midi" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommMultiSerialMega" text="MultiSerialMega" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommPhysicalPixel" text="PhysicalPixel" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommReadASCIIString" text="ReadASCIIString" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommSerialCallResponse" text="SerialCallResponse" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommSerialCallResponseASCII" text="SerialCallResponseASCII" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommSerialEvent" text="SerialEvent" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCommVirtualColorMixer" text="VirtualColorMixer" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="05. Control">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrArrays" text="Arrays" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrForLoopIteration" text="ForLoopIteration" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrIfStatementConditional" text="IfStatementConditional" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrswitchCase" text="swtichCase" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrswitchCase2" text="swtichCase2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleCntrWhileStatementConditional" text="WhileStatementConditional" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="06. Sensors">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleSensorsADXL3xx" text="ADXL3xx" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleSensorsKnock" text="Knock" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleSensorsMemsic2125" text="Memsic2125" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleSensorsPing" text="Ping" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="07. Display">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleDisplay_barGraph" text="barGraph" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exampleDisplay_RowColumnScanning" text="RowColumnScanning" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="08. Strings">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_CharacterAnalysis" text="CharacterAnalysis" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringAdditionOperator" text="StringAdditionOperator" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringAppendOperator" text="StringAppendOperator" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringCaseChanges" text="StringCaseChanges" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringCharacters" text="StringCharacters" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringComparisonOperators" text="StringComparisonOperators" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringConstructors" text="StringConstructors" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringIndexOf" text="StringIndexOf" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringLength" text="StringLength" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringLengthTrim" text="StringLengthTrim" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringReplace" text="StringReplace" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringStartsWithEndsWith" text="StringStartsWithEndsWith" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringSubstring" text="StringSubstring" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringToInt" text="StringToInt" />
+                                    <MenuItem mnemonicParsing="false" onAction="#example_Strings_StringToIntRGB" text="StringToIntRGB" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="09. USB">
+                                 <items>
+                                    <Menu mnemonicParsing="false" text="Keyboard">
+                                      <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#example_USB_Keyboard_KeyboardLogout" text="KeyboardLogout" />
+                                        <MenuItem mnemonicParsing="false" onAction="#example_USB_Keyboard_KeyboardMessage" text="KeyboardMessage" />
+                                          <MenuItem mnemonicParsing="false" onAction="#example_USB_Keyboard_KeyboardReprogram" text="KeyboardReprogram" />
+                                          <MenuItem mnemonicParsing="false" onAction="#example_USB_Keyboard_KeyboardSerial" text="KeyboardSerial" />
+                                      </items>
+                                    </Menu>
+                                    <MenuItem mnemonicParsing="false" onAction="#example_USB_KeyboardAndMouseControl" text="KeyboardAndMouseControl" />
+                                    <Menu mnemonicParsing="false" text="Mouse">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#example_USB_Mouse_ButtonMouseControl" text="ButtonMouseControl" />
+                                          <MenuItem mnemonicParsing="false" onAction="#example_USB_Mouse_JoystickMouseControl" text="JoystickMouseControl" />
+                                       </items>
+                                    </Menu>
+                                 </items>
+                              </Menu>
+                              <MenuItem mnemonicParsing="false" onAction="#example_ArduinoISP" text="ArduinoISP" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Code snippet">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippetUltraSonic" text="Ultra Sonic Sensor" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_PlotHeader" text="Plot Data Form" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT0_FALLING" text="Debouncing INT0 (FALLING)" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT0_RISING" text="Debouncing INT0 (RISING)" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT0_CHANGE" text="Debouncing INT0 (CHANGE)" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT1_FALLING" text="Debouncing INT1 (FALLING)" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT1_RISING" text="Debouncing INT1 (RISING)" />
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuCodeSnippet_debounce_INT1_CHANGE" text="Debouncing INT1 (CHANGE)" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuAbout" text="About" />
+                           </items>
+                        </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Button fx:id="btnArduino" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="589.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnCheckUpgrade" prefHeight="22.0" prefWidth="120.0" text="Check Upgrade" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="30.0">
+               <children>
+                  <HBox prefHeight="30.0" style="-fx-border-width: 0;">
+                     <children>
+                        <Button fx:id="btnCheck" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnCheck" prefHeight="30.0" prefWidth="30.0" scaleShape="false" text="Button" wrapText="true" />
+                        <Button fx:id="btnUpload" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="55.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnUpload" prefHeight="30.0" prefWidth="30.0" text="Button" />
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="15.0" text="Label" />
+                        <Button fx:id="btnNewFile" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="100.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnNewFile" prefHeight="30.0" prefWidth="30.0" text="Button">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></Button>
+                        <Button fx:id="btnOpen" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="110.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onMenuOpen" prefHeight="30.0" prefWidth="30.0" text="Button">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Button fx:id="btnSave" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="80.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onMenuSave" prefHeight="30.0" prefWidth="30.0" text="Button">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Label layoutX="70.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="15.0" text="Label" />
+                        <Button fx:id="btnSrch" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="40.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnSrch" prefHeight="30.0" prefWidth="30.0" text="Button" />
+                        <ComboBox fx:id="cbArduino" prefHeight="25.0" prefWidth="160.0" visibleRowCount="16">
+                           <HBox.margin>
+                              <Insets top="2.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="cbCom" prefHeight="25.0" prefWidth="90.0">
+                           <HBox.margin>
+                              <Insets top="2.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Label layoutX="175.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="15.0" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="btnTerminal" prefHeight="33.0" prefWidth="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="btnPlot" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnPlot" prefHeight="30.0" prefWidth="30.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnTerm1" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnTerm1" prefHeight="30.0" prefWidth="30.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <SplitPane fx:id="splitPane" dividerPositions="0.9409722222222222" layoutX="8.0" layoutY="48.0" orientation="VERTICAL" prefHeight="355.0" prefWidth="664.0" style="-fx-border-width: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="202.0" prefWidth="662.0" style="-fx-background-color: black;">
+               <children>
+                  <TabPane fx:id="tabPane1" layoutX="33.0" layoutY="28.0" prefHeight="295.0" prefWidth="662.0" style="-fx-border-width: 0;" stylesheets="@tabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab id="tab1" fx:id="tab1" text="Untitled">
+                        <content>
+                          <AnchorPane fx:id="apane1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@editor.css" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </TabPane>
+                  <HBox layoutX="83.0" layoutY="514.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="btnFontSizeUp" layoutX="83.0" layoutY="514.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnFontUp" prefHeight="23.0" prefWidth="40.0" text="^" />
+                        <Button fx:id="btnFontSizeDown" layoutX="138.0" layoutY="514.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnFontDown" prefHeight="23.0" prefWidth="40.0" text="v" />
+                        <Label fx:id="labelBot" prefHeight="25.0" prefWidth="1000.0" style="-fx-background-color: #595959; -fx-text-fill: white;" text="Label" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="apaneMsg" minHeight="0.0" minWidth="0.0" prefHeight="192.0" prefWidth="644.0">
+               <children>
+                  <TextArea fx:id="txtMsg" layoutX="14.0" layoutY="-72.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

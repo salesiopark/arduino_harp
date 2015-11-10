@@ -1,0 +1,28 @@
+.default {
+    -fx-font-size: 15;
+    -fx-fill: white;
+    -fx-text-fill: white;
+}
+
+.error-msg {
+    -fx-font-size: 15;
+    -fx-fill: red;
+    -fx-text-fill: red;
+    -fx-font-weight:bold;
+}
+
+.success-msg {
+    -fx-font-size: 15;
+    -fx-fill: skyblue;// green;
+    //-fx-text-fill: green;
+    -fx-font-weight:bold;
+}
+
+.code-area {
+    -fx-font-family: consolas;//monospace;
+    -fx-font-size: 15;
+    -fx-background-color: black;
+    //-fx-background-color: 
+    -fx-fill: white; // not working T.T
+    -fx-text-fill: white; // not working T.T
+}

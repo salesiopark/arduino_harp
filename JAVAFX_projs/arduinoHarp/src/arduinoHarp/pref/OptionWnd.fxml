@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="aPane0" prefHeight="255.0" prefWidth="364.0" style="-fx-background-color: #272822;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arduinoHarp.pref.OptionWndController">
+    <stylesheets>
+        <URL value="@optionwnd.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="22.0" layoutY="56.0" style="-fx-text-fill: white;" text="Tab size :" />
+      <ChoiceBox fx:id="cbTabSize" layoutX="88.0" layoutY="52.0" prefHeight="23.0" prefWidth="42.0" />
+      <Button layoutX="246.0" layoutY="348.0" mnemonicParsing="false" onAction="#onBtnApply" text="Apply" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="100.0" />
+      <Button fx:id="btnCancel" layoutX="315.0" layoutY="348.0" mnemonicParsing="false" onAction="#onBtnCancel" text="Cancel" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
+      <Label layoutX="20.0" layoutY="23.0" style="-fx-text-fill: white;" text="Font size :" />
+      <ChoiceBox fx:id="cbFontSize" layoutX="88.0" layoutY="19.0" prefHeight="23.0" prefWidth="42.0" />
+      <Label layoutX="140.0" layoutY="23.0" style="-fx-text-fill: white;" text="pts:" />
+      <Label layoutX="139.0" layoutY="56.0" style="-fx-text-fill: white;" text="spaces" />
+   </children>
+</AnchorPane>
